@@ -1,0 +1,9 @@
+import About from "./About/About";
+import Contact from "./Contact/Contact";
+import Footer from "./Footer/Footer";
+import Github from "./Github/Github";
+import Header from "./Header/Header";
+import Home from "./Home/Home";
+import Layout from "./Layout/Layout";
+import User from "./User/User";
+export { Layout, Header, Footer, Home, About, User, Contact, Github };
