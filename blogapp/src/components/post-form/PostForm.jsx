@@ -9,7 +9,6 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 export default function PostForm({ post }) {
-  console.log("🚀 ~ PostForm ~ post:", post);
   //?react hook form => control used for 3rd party Components
   const { register, handleSubmit, watch, setValue, control, reset } = useForm({
     defaultValues: {

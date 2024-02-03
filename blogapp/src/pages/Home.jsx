@@ -1,28 +1,21 @@
 import { useEffect, useState } from "react";
 import appwriteService from "../appwrite/config";
 import { Container, Loading, PostCard } from "../components";
-import { useSelector, useDispatch } from "react-redux";
-import authService from "../appwrite/auth";
-import { login, logout } from "../store/authSlice";
+import { useSelector } from "react-redux";
 
 export default function Home() {
-  const dispatch = useDispatch();
-  const userData = useSelector((state) => state.auth.userData);
+  const { userData, status } = useSelector((state) => state.auth);
   const user = userData?.name;
   const [posts, setPosts] = useState([]);
   const [authenticated, setAuthenticated] = useState(false);
 
   useEffect(() => {
-    authService.getCurrentUser().then((userData) => {
-      if (userData) {
-        dispatch(login({ userData }));
-        setAuthenticated(true);
-      } else {
-        dispatch(logout());
-        setAuthenticated(false);
-      }
-    });
-  }, [dispatch, userData]);
+    if (status) {
+      setAuthenticated(true);
+    } else {
+      setAuthenticated(false);
+    }
+  }, [status]);
 
   useEffect(() => {
     if (authenticated) {

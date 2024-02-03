@@ -15,7 +15,6 @@ function App() {
       .getCurrentUser()
       .then((userData) => {
         userData ? dispatch(login({ userData })) : dispatch(logout());
-        console.log("🚀 ~ useEffect ~  userData:", userData);
       })
       .finally(() => setLoading(false));
   }, [dispatch, userData]);
@@ -26,7 +25,7 @@ function App() {
         <div className="w-full block">
           <Header />
         </div>
-        <main >
+        <main>
           <Outlet />
         </main>
         <div className="w-full block">

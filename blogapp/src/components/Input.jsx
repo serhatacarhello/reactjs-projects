@@ -4,7 +4,6 @@ const Input = React.forwardRef(function Input(
   { label, type = "text", className = "", defaultValue = "", ...props },
   ref
 ) {
-  console.log("🚀 ~ defaultValue:", defaultValue);
   const id = useId();
   return (
     <div className="w-full">
