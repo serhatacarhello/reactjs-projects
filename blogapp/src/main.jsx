@@ -7,12 +7,13 @@ import App from "../src/App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
-import Protected from "../src/components/AuthLayout.jsx";
 import Signup from "./pages/Signup.jsx";
 import AllPosts from "./pages/AllPosts.jsx";
 import AddPost from "./pages/AddPost.jsx";
 import EditPost from "./pages/EditPost.jsx";
 import Post from "./pages/Post.jsx";
+import NotFound from "./pages/NotFound.jsx";
+import Protected from "./components/AuthLayout.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/login",
+        path: "login",
         element: (
           <Protected authentication={false}>
             <Login />
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/signup",
+        path: "signup",
         element: (
           <Protected authentication={false}>
             <Signup />
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/all-posts",
+        path: "all-posts",
         element: (
           <Protected authentication>
             <AllPosts />
@@ -47,7 +48,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/add-post",
+        path: "add-post",
         element: (
           <Protected>
             <AddPost />
@@ -55,7 +56,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/edit-post:slug",
+        path: "edit-post/:slug",
         element: (
           <Protected>
             <EditPost />
@@ -63,10 +64,18 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/post:slug",
+        path: "post/:slug",
         element: (
           <Protected>
             <Post />
+          </Protected>
+        ),
+      },
+      {
+        path: "*",
+        element: (
+          <Protected>
+            <NotFound />
           </Protected>
         ),
       },

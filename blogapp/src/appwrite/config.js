@@ -46,7 +46,7 @@ export class Service {
   async createPost({ title, slug, content, featuredImage, status, userId }) {
     try {
       return await this.databases.createDocument(
-        conf.appwriteProjectId,
+        conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
         slug,
         {
@@ -79,13 +79,12 @@ export class Service {
 
   async deletePost(slug) {
     try {
-      const response = await this.databases.deleteDocument(
+      await this.databases.deleteDocument(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
         slug
       );
-      console.log("delete", response);
-      if (response == 204) return true;
+      return true;
     } catch (error) {
       console.log("Appwrite service:: deletePost()::", error);
       return false;
@@ -120,6 +119,6 @@ export class Service {
   }
 }
 
-const service = new Service();
+const appwriteService = new Service();
 
-export default service;
+export default appwriteService;
