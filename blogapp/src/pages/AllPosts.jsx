@@ -36,7 +36,7 @@ export default function AllPosts() {
           ) : (
             posts.map((post) => (
               <div className="p-2 w-1/4 min-w-fit" key={post.$id}>
-                <PostCard {...post} />
+                <PostCard {...post}  />
               </div>
             ))
           )}
