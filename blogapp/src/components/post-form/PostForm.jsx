@@ -91,8 +91,11 @@ export default function PostForm({ post }) {
   }, [post, reset]);
 
   return (
-    <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
-      <div className="w-2/3 px-2">
+    <form
+      onSubmit={handleSubmit(submit)}
+      className="flex flex-wrap flex-col md:flex-row min-h-screen mb-10"
+    >
+      <div className="w-full md:w-2/3 px-2">
         <Input
           label={"Title"}
           placeholder="Title"
@@ -120,7 +123,7 @@ export default function PostForm({ post }) {
           defaultValue={post?.content}
         />
       </div>
-      <div className="w-1/3 px-2">
+      <div className="w-full md:w-1/3 px-2">
         <Input
           label="Featured Image "
           type="file"
@@ -129,7 +132,7 @@ export default function PostForm({ post }) {
           {...register("image", { required: !post })}
         />
         {post && (
-          <div className="w-full mb-4">
+          <div className="w-full mb-4 min-h-fit">
             <img
               src={appwriteService.getFilePreview(post.featuredImage)}
               alt={post.title}

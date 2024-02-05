@@ -3,9 +3,8 @@ import { Controller } from "react-hook-form";
 import { Editor } from "@tinymce/tinymce-react";
 import conf from "../conf/conf";
 export default function RTE({ name, control, label, defaultValue = "" }) {
-
   return (
-    <div className="w-full">
+    <div className="w-full mb-10 h-full">
       {label && <label className="inline-block mb-1 pl-1">{label} </label>}
 
       <Controller
@@ -17,7 +16,7 @@ export default function RTE({ name, control, label, defaultValue = "" }) {
             initialValue={defaultValue}
             init={{
               branding: false,
-              height: 500,
+              min_height: 300,              
               plugins: [
                 "advlist",
                 "autolink",
