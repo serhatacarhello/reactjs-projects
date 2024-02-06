@@ -22,7 +22,7 @@ export default function AllPosts() {
     >
       <h2 className="text-center font-bold text-2xl ">All Posts</h2>
       <Container>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap justify-center items-center bg-black rounded-xl">
           {posts && posts.length === 0 ? (
             <div className="flex flex-wrap ">
               {user ? (
@@ -36,7 +36,7 @@ export default function AllPosts() {
           ) : (
             posts.map((post) => (
               <div className="p-2 w-1/4 min-w-fit" key={post.$id}>
-                <PostCard {...post}  />
+                <PostCard {...post} />
               </div>
             ))
           )}

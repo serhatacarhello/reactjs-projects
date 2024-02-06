@@ -44,7 +44,7 @@ export default function Home() {
     <div className="w-full py-8 min-h-screen">
       <h2 className="text-center font-bold text-2xl ">Home</h2>
       <Container>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap justify-center items-center bg-transparent">
           {posts && posts.length === 0 ? (
             <div className="flex flex-wrap ">
               {user ? (

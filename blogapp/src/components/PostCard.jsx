@@ -4,12 +4,14 @@ import githubIcon from "../assets/github.svg";
 export default function PostCard({ $id, title, featuredImage }) {
   return (
     <Link to={`/post/${$id}`}>
-      <div className="max-w-sm  min-w-52 h-full overflow-hidden shadow-lg w-full bg-gray-100 rounded-xl p-4 xl:shrink-0  flex-1">
-        <img
-          src={appwriteService.getFilePreview(featuredImage)}
-          alt={title}
-          className="rounded-xl h-auto max-w-full"
-        />
+      <div className="max-w-sm  min-w-52 h-fit overflow-hidden shadow-lg w-full bg-gray-100 rounded-xl p-4 xl:shrink-0  flex-1">
+        <div className="rounded-xl">
+          <img
+            src={appwriteService.getFilePreview(featuredImage)}
+            alt={title}
+            className="rounded-xl img-fluid"
+          />
+        </div>
         <div className="px-6 py-4">
           <div className="font-bold text-xl mb-2">{title}</div>
         </div>
